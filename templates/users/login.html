@@ -1,0 +1,36 @@
+{% extends 'partials/base.html' %}
+{% block title %}Login Page{% endblock %}
+{% block content %}
+
+<div class="container cover">
+    <div class="row mt-3 pt-5"> <!-- Adjusted top margin to pt-5 for a bit more space -->
+        <!-- Column for the Form -->
+        <div class="col-md-6 offset-md-3"> <!-- Center the form with offset-md-3 -->
+            <div class="card shadow my-2">
+                <div class="card-body">
+                    <h4 class="mb-4">Login Page</h4> <!-- Added margin bottom to the heading -->
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group mb-3"> <!-- Form group for username -->
+                            <label for="id_username">Username</label>
+                            {{ form.username }}
+                        </div>
+                        <div class="form-group mb-3"> <!-- Form group for password -->
+                            <label for="id_password">Password</label>
+                            {{ form.password }}
+                        </div>
+                        <button class="btn btn-primary btn-block mt-3" type="submit" value="Login Page">Login Page</button>
+                    </form>
+                    <div class="text-center my-4"> <!-- Added margin top and bottom -->
+                        <a href="{% url 'password_reset' %}">Forget Password</a> <!-- Corrected the closing tag and href -->
+                    </div>
+                    <div class="text-center mt-3"> <!-- Added margin top to the create account button -->
+                        <a class="btn btn-success" href="{% url 'users-sign-up' %}">Create An Account</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

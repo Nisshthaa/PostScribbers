@@ -1,0 +1,27 @@
+{% extends 'partials/base.html' %}
+{% block title %}Post detail{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row mt-3 pt-5"> <!-- Adjusted top margin to pt-5 for a bit more space -->
+        <!-- Column for the Form -->
+        <div class="col-md-8 offset-md-2">
+            <div class="card shadow my-2">
+                <div class="card-body">
+                    <div class="alert alert-danger">
+                        Do you want to delete post?
+
+                    </div>
+                    <form action="" method="POSt">
+                        {% csrf_token %}
+                        <a href="{% url 'blog-post-detail' post.id %}" class="btn btn-secondary btn-sm">Cancel</a>
+                        <input class=" btn btn-primary"type="submit" value="Confirm">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Column for the Posts -->
+
+    </div>
+</div>
+{% endblock %}
